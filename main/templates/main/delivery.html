@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static "deps/css/my_footer_css.css" %}">
+    <style>
+        .delivery-info {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .delivery-info h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #111;
+        }
+
+        .delivery-info p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+            color: #333;
+        }
+
+        .delivery-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .delivery-icons img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+        }
+
+        .custom-shadow {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+{% endblock %}
+
+{% block modal_cart %}
+{% include "includes/cart_button.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="mt-5 pt-5 bg-white custom-shadow rounded">
+    <div class="container p-4 delivery-info">
+        <h2><strong>Информация о доставке</strong></h2>
+
+        <p>
+            Мы находимся в Алматы, Астане, Шымкенте и Караганде. <br>
+            Вы можете самостоятельно забрать покупку из точки самовывоза или заказать доставку курьером. <br>
+            Также доступна доставка по всей территории РК, СНГ и любой страны.
+        </p>
+
+        <div class="delivery-icons">
+            <img src="{% static 'deps/icons/delivery1.jpeg' %}" alt="Способ доставки 1" width="50" height="50">
+            <img src="{% static 'deps/icons/delivery2.png' %}" alt="Способ доставки 2" width="50" height="50">
+            <img src="{% static 'deps/icons/delivery3.png' %}" alt="Способ доставки 3" width="50" height="50">
+            <img src="{% static 'deps/icons/delivery4.png' %}" alt="Способ доставки 4" width="50" height="50">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+<footer class="py-4 bg-dark">
+    <div class="container text-center">
+        <p class="m-0">© 2025 Dark Horse Tattoo Market. Все права защищены.</p>
+    </div>
+</footer>
+{% endblock %}

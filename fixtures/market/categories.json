@@ -1,0 +1,50 @@
+﻿[
+{
+    "model": "market.categories",
+    "pk": 1,
+    "fields": {
+        "name": "┬ёх ЄютрЁ√",
+        "slug": "all"
+    }
+},
+{
+    "model": "market.categories",
+    "pk": 2,
+    "fields": {
+        "name": "╠р°шэъш ш сыюъш яшЄрэш ",
+        "slug": "mashinki-i-bloki-pitaniya"
+    }
+},
+{
+    "model": "market.categories",
+    "pk": 3,
+    "fields": {
+        "name": "╧шуьхэЄ√ ш ъЁрёър",
+        "slug": "pigmenty-i-kraska"
+    }
+},
+{
+    "model": "market.categories",
+    "pk": 4,
+    "fields": {
+        "name": "╥ЁрэёЇхЁэр  сєьрур",
+        "slug": "transfernaya-bumaga"
+    }
+},
+{
+    "model": "market.categories",
+    "pk": 5,
+    "fields": {
+        "name": "╨рёїюфэшъш",
+        "slug": "rashodniki"
+    }
+},
+{
+    "model": "market.categories",
+    "pk": 6,
+    "fields": {
+        "name": "╩юёьхЄшър ш рэхёЄхЄшъш",
+        "slug": "kosmetika-i-anestetiki"
+    }
+}
+]

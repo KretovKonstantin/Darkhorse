@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static "deps/css/my_footer_css.css" %}">
+    <style>
+        body {
+            background-color: #fff;
+            color: #333;
+        }
+
+        .custom-shadow {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-info h4 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #111;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-info a {
+            color: #ff9f00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+            color: #e67e22;
+        }
+
+        .contact-info .social-icons a {
+            color: #ff9f00;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info .social-icons a:hover {
+            color: #d3d3d3;
+        }
+
+        .contact-info .phone, .contact-info .email {
+            display: inline-block;
+            background-color: #f4f4f4;
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin: 5px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info .phone a, .contact-info .email a {
+            color: #111;
+            font-weight: bold;
+        }
+
+        .map iframe {
+            border: none;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #222;
+            padding: 20px 0;
+            color: #fff;
+        }
+
+        footer p {
+            color: #b0b0b0;
+        }
+
+        footer a {
+            color: #ff9f00;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+{% endblock %}
+
+{% block modal_cart %}
+{% include "includes/cart_button.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="mt-5 pt-5 bg-white custom-shadow rounded">
+    <div class="container p-4">
+        <h2 class="m-2"><strong>Контакты</strong></h2>
+
+        <section class="contact-info m-2">
+            <h4>Свяжитесь с нами</h4>
+            
+            <p><strong>Телефон:</strong> 
+                <span class="phone">
+                    <a href="tel:+77027437666">+7 (702) 743 76 66</a>
+                </span>
+            </p>
+            
+            <p><strong>Телефон:</strong> 
+                <span class="phone">
+                    <a href="tel:+77017980658">+7 (701) 798 06 58</a>
+                </span>
+            </p>
+
+            <p><strong>Email:</strong>
+                <span class="email">
+                    <a href="mailto:info@tattoomarket.kz">info@tattoomarket.kz</a>
+                </span>
+            </p>
+
+            <p><strong>Соцсети:</strong></p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/tattoomarket.kz?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" title="Instagram">
+                <img src="{% static 'deps/icons/instagram.png' %}" alt="Instagram" width="50" height="50"></a>
+                <a href="https://api.whatsapp.com/send/?phone=77027437666&text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21+%D0%AF+%D1%85%D0%BE%D1%87%D1%83+%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C+%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7&type=phone_number&app_absent=0" target="_blank" title="Instagram">
+                <img src="{% static 'deps/icons/whatsapp.png' %}" alt="whatsapp" width="50" height="50"></a>
+            </div>
+        </section>
+
+        <section class="map m-2 mt-4">
+            <h4>Наше местоположение</h4>
+            <div class="ratio ratio-16x9 mb-2">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2906.610738592708!2d76.90259927491832!3d43.23862037914781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3883693abfb7f5bf%3A0xa7c0028482c7435b!2s%22Dark%20Horse%22%20Tattoo%20Studio!5e0!3m2!1sru!2skz!4v1742231084017!5m2!1sru!2skz"
+                        width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <p>Адрес: улица Мынбаева 47Б, Алматы, Казахстан</p>
+        </section>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+<footer class="py-4 bg-dark">
+    <div class="container text-center">
+        <p class="m-0">© 2025 Dark Horse Tattoo Market. Все права защищены.</p>
+    </div>
+</footer>
+{% endblock %}
