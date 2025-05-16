@@ -1,5 +1,6 @@
 from django.http import Http404
 from django.views.generic import DetailView, ListView
+from django.db.models import Q
 
 from market.models import Products
 from market.utils import q_search
@@ -21,14 +22,14 @@ class CatalogView(ListView):
         order_by = self.request.GET.get("order_by")
         query = self.request.GET.get("q")
 
-        if category_slug == "all":
-            market = super().get_queryset()
-        elif query:
-            market = q_search(query)
-        else:
-            market = super().get_queryset().filter(category__slug=category_slug)
-            if not market.exists():
-                raise Http404()
+        market = super().get_queryset()
+
+        if category_slug and category_slug != "all":
+            market = market.filter(category__slug=category_slug)
+
+        if query:
+            # query = query.capitalize()
+            market = market.filter(Q(name__icontains=query) | Q(description__icontains=query))
 
         if on_sale:
             market = market.filter(discount__gt=0)
@@ -36,8 +37,11 @@ class CatalogView(ListView):
         if order_by and order_by != "default":
             market = market.order_by(order_by)
 
+        if not market.exists():
+            raise Http404("Продукты не найдены.")
+
         return market
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = "Dark horse - Каталог"

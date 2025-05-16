@@ -93,7 +93,7 @@ MIDDLEWARE = [
 
     'allauth.account.middleware.AccountMiddleware',
 
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'app.urls'
@@ -121,12 +121,8 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DATA_NAME'),
-        'USER': os.getenv('DATA_USER'),
-        'PASSWORD': os.getenv('DATA_PASSWORD'),
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',  # Путь к файлу базы данных
     }
 }
 
@@ -165,15 +161,17 @@ USE_I18N = True
 USE_TZ = True
 
 
-STATIC_URL = 'static/'
+# STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'static'
-    ]
+    BASE_DIR / 'static',
+]
 
-MEDIA_URL = 'media/'
-
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
+# MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 INTERNAL_IPS = [
