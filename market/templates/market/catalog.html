@@ -9,7 +9,6 @@
 
 {% block content %}
 <div class="row">
-    <!-- Форма фильтров -->
     <div class="dropdown mb-2">
         <button class="btn btn-secondary dropdown-toggle btn-dark" type="button" data-bs-toggle="dropdown"
             aria-expanded="false">
@@ -51,8 +50,7 @@
             <button type="submit" class="btn btn-primary mx-3 mt-3">Применить</button>
         </form>
     </div>
-
-    {% if request.GET.q %}
+{% if request.GET.q %}
     <h3 class="mt-4">Результаты поиска по запросу {{ request.GET.q }}</h3>
     {% if not market %}
         <link rel="stylesheet" href="{% static "deps/css/my_footer_css.css" %}">
@@ -60,7 +58,6 @@
     {% endif %}
     {% endif %}
     {% for product in market %}
-        <!-- Карта товара -->
         <div class="col-lg-4 col-md-6 p-4">
             <div class="card border-primary rounded custom-shadow">
                 {% if product.image %}
@@ -142,8 +139,6 @@
     </nav>
 {% endif %}
 {% endblock  %}
-
-
 {% block footer %}
 <footer class="py-4 bg-dark">
     <div class="container">

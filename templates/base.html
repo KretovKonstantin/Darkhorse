@@ -3,7 +3,7 @@
 {% load market_tags %}
 
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -15,8 +15,11 @@
     {% block css %}
 
     {% endblock %}
-    <!-- Favicons -->
-    <link rel="icon" type="image/png" href="{% static 'deps/favicon/favicon.jpg' %}">
+    <!-- Favicons for different platforms -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "deps/favicon/apple-touch-icon.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "deps/favicon/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "deps/favicon/favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "deps/favicon/site.webmanifest" %}">
     <title>{{ title }}</title>
 </head>
 
@@ -57,7 +60,7 @@
                                     Мой профиль
                                 </a>
                                 <ul class="dropdown-menu">
-
+                                    <li><a class="dropdown-item  text-white" href="carts/cart.html">Корзина</a></li>
                                     <li><a class="dropdown-item  text-white" href="{% url "user:profile" %}">Личный кабинет</a>
                                     </li>
                                     {% if user.is_admin or user.is_staff %}
@@ -81,9 +84,7 @@
     </header>
     <section>
         <div class="container">
-            <!-- Каталог и корзина с фиксированным расположением на странице -->
             <div class="row mt-1 position-fixed z-3">
-                <!-- Каталог -->
                 <div class="dropdown mb-2">
                     <button class="btn btn-secondary dropdown-toggle btn-dark" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
@@ -101,17 +102,14 @@
 
                     </ul>
                 </div>
-                <!-- Значек корзины, вызывает модальное окно -->
                 {% block modal_cart %}{% endblock  %}
-                <!-- Закончилась разметка модального окна -->
             </div>
         </div>
-        <!-- Контент -->
         <div class="container">
             <div class="row mt-1">
-              
+                <div class="col-lg-2">
+                </div>
                 <div class="col-lg-10">
-                    <!-- Контент на странице -->
                     {% include "includes/notifications.html" %}
                     {% block content %}{% endblock %}
                 </div>
